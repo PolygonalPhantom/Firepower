@@ -10,7 +10,7 @@ Try to destroy the enemy ship before it destroys you! This game is heavily based
 
 ### Prequisites
 * GNU-GCC Compiler
-* A Linux-based OS. (Windows support coming soon ;))
+* Linux (Windows support coming soon ;))
 ### Building
 Open a terminal window in the main directory and type `make`
 
