@@ -4,7 +4,7 @@
 A tiny terminal game about battleships
 
 ## Info
-Try to destroy the enemy ship before it destroys you! This game is heavily based on RNG.
+Try to destroy the enemy ship before it destroys you! This game is heavily based on RNG. Contributions are very welocomed. This is one of my first projects and im still a newbie to programming and project organization. If anything doesnt seem right to you in my code, please tell me!
 
 ## How to Build from Source
 
