@@ -8,76 +8,88 @@
 
 extern int input;
 extern bool FL_RANGECALCULATED;
+extern bool FL_INPUTINVALID;
 extern short PlayerHP, EnemyHP;
 
 void option1(){
-    system("clear");
-    DrawPlayerShipwEnemy();
-    std::cout << "What will you do next...\n\n\n"
-                 "1. Fire a salvo\n"
-                 "2. Calculate the range\n\n";
-                 ":";
-    std::cin >> input;
+    FL_INPUTINVALID = false;
     int generated;
-    switch(input){
-        case 1: {
-            entry4();
-            generated = rng_salvo();
-            if(FL_RANGECALCULATED){
-                FL_RANGECALCULATED = false;
-                if(generated < 4){
-                    entry5();
-                } else if (generated < 8){
-                    EnemyHP-=10;
-                    entry6();
-                    if(EnemyHP == 0){
-                        entry12();
-                        exit(0);
+    do {
+        system("clear");
+        DrawPlayerShipwEnemy();
+        std::cout << "What will you do next...\n\n\n"
+                    "1. Fire a salvo\n"
+                    "2. Calculate the range\n\n";
+        if(FL_INPUTINVALID){
+            std::cout << "Invalid. Select a valid decision:";
+            FL_INPUTINVALID = false;
+        } else {
+            std::cout << "Select your decision:";
+        }
+        std::cin >> input;
+        switch(input){
+            case 1: {
+                entry4();
+                generated = rng_salvo();
+                if(FL_RANGECALCULATED){
+                    FL_RANGECALCULATED = false;
+                    if(generated < 4){
+                        entry5();
+                    } else if (generated < 8){
+                        EnemyHP-=10;
+                        entry6();
+                        if(EnemyHP == 0){
+                            entry12();
+                            exit(0);
+                        }
+                    } else if (generated <= 10){
+                        if(EnemyHP < 30){
+                            EnemyHP = 0;
+                        } else {
+                            EnemyHP-=30;
+                        }
+                        entry7();
+                        if(EnemyHP == 0){
+                            entry12();
+                            exit(0);
+                        }
                     }
-                } else if (generated <= 10){
-                    if(EnemyHP < 30){
-                        EnemyHP = 0;
-                    } else {
-                        EnemyHP-=30;
-                    }
-                    entry7();
-                    if(EnemyHP == 0){
-                        entry12();
-                        exit(0);
+                    
+                } else {
+                    if(generated < 6){
+                        entry5();
+                    } else if (generated < 8){
+                        EnemyHP-=10;
+                        entry6();
+                        if(EnemyHP == 0){
+                            entry12();
+                            exit(0);
+                        }
+                    } else if (generated <= 10){
+                        if(EnemyHP < 30){
+                            EnemyHP = 0;
+                        } else {
+                            EnemyHP-=30;
+                        }
+                        entry7();
+                        if(EnemyHP == 0){
+                            entry12();
+                            exit(0);
+                        }
                     }
                 }
-                
-            } else {
-                if(generated < 6){
-                    entry5();
-                } else if (generated < 8){
-                    EnemyHP-=10;
-                    entry6();
-                    if(EnemyHP == 0){
-                        entry12();
-                        exit(0);
-                    }
-                } else if (generated <= 10){
-                    if(EnemyHP < 30){
-                        EnemyHP = 0;
-                    } else {
-                        EnemyHP-=30;
-                    }
-                    entry7();
-                    if(EnemyHP == 0){
-                        entry12();
-                        exit(0);
-                    }
-                }
+                break;
             }
-            break;
+            case 2: {
+                FL_RANGECALCULATED = true;
+                entry3();
+                break;
+            }
+            default:
+                FL_INPUTINVALID = true;
+                break;
         }
-        case 2: {
-            FL_RANGECALCULATED = true;
-            entry3();
-            break;
-        }
-    }
+    } while (FL_INPUTINVALID);
     entry8();
     generated = rng_salvo();
     if(generated < 4){

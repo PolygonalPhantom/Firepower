@@ -14,12 +14,11 @@ short PlayerHP = 100;
 
 //flags
 bool FL_EXIT = false;
+bool FL_INPUTINVALID = false;
 bool FL_RANGECALCULATED = false;
 
 
 int main(){
     InitMainMenu();
     if(FL_EXIT) return 0;
-    system("clear");
-    StartGame();
 }

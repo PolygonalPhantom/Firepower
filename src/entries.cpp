@@ -107,7 +107,7 @@ void entry10(){
 void entry11(){
     system("clear");
     DrawPlayerShipwEnemy();
-    std::cout << "Shells land everywhere. They detonate inside one of the turrets making explode violently and fly right off the hull and into the sea.\n\n"
+    std::cout << "Shells land everywhere. They detonate inside one of the turrets making it explode violently and fly right off the hull and into the sea.\n\n"
                  "\"They CRITICALLY DAMAGED us!\" (Player HP left: " << PlayerHP << ")\n\n\n"
                  "Press any key to continue...";
     c=getchar();
@@ -124,9 +124,9 @@ void entry12(){
 void entry13(){
     system("clear");
     DrawEnemyShip();
-    std::cout << "The water has already started to flood the bridge. Theres no way your mighty ship is getting back home.\n\n"
+    std::cout << "The water has already started to flood the bridge. There's no way your mighty ship is making it back home.\n\n"
                  "\"ABANDON SHIP!\"\n\n"
-                 "The enemy pulls you and whats left of your crew out of the water. You look back to see the ship that was once your home engulfed by flames and explosions as the ammo cooks off.\n\n\n"
+                 "The enemy pulls you and what's left of your crew out of the water. You look back to see the ship that was once your home engulfed by flames and explosions as the ammo cooks off.\n\n\n"
                  "Press any key to continue...";
     c=getchar();
 }
